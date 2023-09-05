@@ -5,8 +5,8 @@ var http = require("http"),
 
 exports.postReq = function (request, response) {
   var body = "",
-    workingKey = "9223AAA9021800C10C706B47E6B0D7C3", //Put in the 32-Bit key shared by CCAvenues.
-    accessCode = "AVXS76JC64CK33SXKC", //Put in the Access Code shared by CCAvenues.
+    workingKey = "9223AAA9021800C10C706B47E6B0D7C3", //Put in the 32-Bit Key provided by CCAvenue.
+    accessCode = "AVXS76JC64CK33SXKC", //Put in the Access Code provided by CCAvenue.
     encRequest = "",
     formbody = "";
 
@@ -14,7 +14,7 @@ exports.postReq = function (request, response) {
     body += data;
     encRequest = ccav.encrypt(body, workingKey);
     formbody =
-      '<form id="nonseamless" method="post" name="redirect" action="https://test.ccavenue.com/transaction/transaction.do?command=initiateTransaction"/> <input type="hidden" id="encRequest" name="encRequest" value="' +
+      '<form id="nonseamless" method="post" name="redirect" action="https://secure.ccavenue.com/transaction/transaction.do?command=initiateTransaction"/> <input type="hidden" id="encRequest" name="encRequest" value="' +
       encRequest +
       '"><input type="hidden" name="access_code" id="access_code" value="' +
       accessCode +
