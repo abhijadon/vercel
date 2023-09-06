@@ -1,9 +1,11 @@
-var http = require("http"),
-  fs = require("fs"),
-  ccav = require("./ccavutil.js"),
-  qs = require("querystring");
+const express = require("express");
+const router = express.Router("");
+var http = require("http");
+fs = require("fs");
+ccav = require("./ccavutil.js");
+qs = require("querystring");
 
-exports.postReq = function (request, response) {
+router.post("/", function (request, response) {
   var body = "",
     workingKey = "9223AAA9021800C10C706B47E6B0D7C3", //Put in the 32-Bit Key provided by CCAvenue.
     accessCode = "AVXS76JC64CK33SXKC", //Put in the Access Code provided by CCAvenue.
@@ -27,4 +29,6 @@ exports.postReq = function (request, response) {
     response.end();
   });
   return;
-};
+});
+
+module.exports = router;
