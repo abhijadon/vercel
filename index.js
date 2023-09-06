@@ -29,7 +29,7 @@ app.post("/ccavRequestHandler", function (request, response) {
   ccavReqHandler.postReq(request, response);
 });
 
-app.post("/ccavResponseHandler", function (request, response) {
+app.get("/ccavResponseHandler", function (request, response) {
   ccavResHandler.postRes(request, response);
 });
 
