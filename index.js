@@ -14,6 +14,8 @@ dotenv.config();
 var http = require("http");
 ccav = require("./ccavutil.js");
 qs = require("querystring");
+ccavReqHandler = require("./ccavRequestHandler.js");
+ccavResHandler = require("./ccavResponseHandler.js");
 
 app.use(express.static("public"));
 app.set("views", __dirname + "/public");
@@ -23,9 +25,13 @@ app.get("/about", function (req, res) {
   res.render("dataFrom.html");
 });
 
-app.post("/ccavRequestHandler", require("./ccavRequestHandler"));
+app.post("/ccavRequestHandler", function (request, response) {
+  ccavReqHandler.postReq(request, response);
+});
 
-app.post("/ccavResponseHandler", require("./ccavResponseHandler"));
+app.post("/ccavResponseHandler", function (request, response) {
+  ccavResHandler.postRes(request, response);
+});
 
 //Api routes are available
 app.use("/api/", require("./routes/email"));

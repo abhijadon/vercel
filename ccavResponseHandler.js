@@ -1,11 +1,9 @@
-const express = require("express");
-const router = express.Router("");
-var http = require("http");
-fs = require("fs");
-ccav = require("./ccavutil.js");
-qs = require("querystring");
+var http = require("http"),
+  fs = require("fs"),
+  ccav = require("./ccavutil.js"),
+  qs = require("querystring");
 
-router.post("/", function (request, response) {
+exports.postRes = function (request, response) {
   var ccavEncResponse = "",
     ccavResponse = "",
     workingKey = "9223AAA9021800C10C706B47E6B0D7C3", //Put in the 32-Bit Key provided by CCAvenue.
@@ -32,6 +30,4 @@ router.post("/", function (request, response) {
     response.write(htmlcode);
     response.end();
   });
-});
-
-module.exports = router;
+};
