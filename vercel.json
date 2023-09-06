@@ -8,7 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/about",
+      "src": "/(.*)",
       "dest": "/"
     }
   ]
